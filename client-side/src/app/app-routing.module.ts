@@ -6,7 +6,7 @@ import {CarEditComponent} from './car/car-edit/car-edit.component';
 import {CarAddComponent} from './car/car-add/car-add.component';
 
 const routes: Routes = [
-  {path: '/login', component: UserLoginComponent},
+  {path: 'login', component: UserLoginComponent},
   {path: 'cars/add', component: CarAddComponent},
   {path: 'cars/edit/:id', component: CarEditComponent},
   {path: 'cars', component: CarListComponent},

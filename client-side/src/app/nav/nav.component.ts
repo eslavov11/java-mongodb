@@ -10,14 +10,10 @@ import {AuthService} from '../shared/services/auth.service';
   styleUrls: ['./nav.component.css']
 })
 export class NavComponent implements OnInit {
-  private balance: number;
-
-
   constructor(private userService: UserService,
               private authService: AuthService,
               private http: HttpClient,
               private router: Router) {
-    this.balance = 0;
   }
 
   async ngOnInit() {
