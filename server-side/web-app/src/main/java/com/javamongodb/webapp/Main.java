@@ -20,8 +20,9 @@ public class Main extends WebApp {
     private static final URI BASE_URI = URI.create("http://0.0.0.0:8080/");
 
     private static void startServer() {
-        AnnotationConfigWebApplicationContext ctx = new AnnotationConfigWebApplicationContext();
-        ctx.scan("com.*");
+        AnnotationConfigWebApplicationContext ctx =
+                new AnnotationConfigWebApplicationContext();
+        ctx.scan("com.javamongodb.webapp.config");
         ctx.refresh();
 
         JerseyResourceConfig jerseyConfig = ctx.getBean(JerseyResourceConfig.class);
@@ -30,14 +31,16 @@ public class Main extends WebApp {
         ServerSignatureFilter signatureFilter = ctx.getBean(ServerSignatureFilter.class);
         jerseyConfig.register(signatureFilter);
 
-        final HttpServer server = GrizzlyHttpServerFactory.createHttpServer(BASE_URI, jerseyConfig, false);
+        final HttpServer server = GrizzlyHttpServerFactory
+                .createHttpServer(BASE_URI, jerseyConfig, false);
         grizzlyConfigurer.configure(server);
 
         try {
             server.start();
         } catch (IOException ex) {
             server.shutdownNow();
-            throw new RuntimeException(LocalizationMessages.FAILED_TO_START_SERVER(ex.getMessage()), ex);
+            throw new RuntimeException(
+                    LocalizationMessages.FAILED_TO_START_SERVER(ex.getMessage()), ex);
         }
     }
 }

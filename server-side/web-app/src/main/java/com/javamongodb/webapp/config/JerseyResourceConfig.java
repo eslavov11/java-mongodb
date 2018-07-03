@@ -7,6 +7,6 @@ import org.springframework.stereotype.Component;
 public class JerseyResourceConfig extends ResourceConfig {
     public JerseyResourceConfig() {
         super();
-        packages(true, "com.javamongodb");
+        packages(true, "com.javamongodb.webapp.resource");
     }
 }

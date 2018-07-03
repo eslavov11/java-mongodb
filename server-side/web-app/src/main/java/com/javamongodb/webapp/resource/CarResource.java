@@ -25,7 +25,6 @@ public class CarResource {
     }
 
     @POST
-    //@PreAuthorize("hasRole('ADMIN')")
     public Response add(CarModel carModel) {
         this.service.create(carModel);
 
@@ -34,7 +33,6 @@ public class CarResource {
 
     @PUT
     @Path("/{id}")
-    //@PreAuthorize("hasRole('ADMIN')")
     public Response edit(@PathParam("id") String id, CarModel carModel) {
         carModel.setId(id);
 

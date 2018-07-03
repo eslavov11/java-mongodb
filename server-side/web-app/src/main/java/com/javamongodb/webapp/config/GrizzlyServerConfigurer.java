@@ -16,7 +16,6 @@ public class GrizzlyServerConfigurer {
     @Value("${server.grizzly.worker-threads:0}")
     private Integer workerThreads;
 
-
     public void configure(HttpServer server) {
 
         if (workerThreads == null || workerThreads <= 0) {
